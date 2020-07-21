@@ -3,10 +3,11 @@
  */
 import * as types from './types';
 
-export const requestImage = (type) => {
+export const requestImages = (type, query) => {
   return {
     type: types.IMAGES_REQUEST,
-    type
+    type,
+    query
   };
 }
 

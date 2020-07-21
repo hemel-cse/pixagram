@@ -41,7 +41,7 @@ const EntryPoint = () =>  {
   return (
     <Provider store={store}>
       <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
-        <PaperProvider theme={{...theme, roundness: 2, colors: { ...theme.colors, primary: '#1ba1f2' }}}>
+        <PaperProvider theme={{...theme, roundness: 2, colors: { ...theme.colors, primary: '#39b35b', secondary: '#131313' }}}>
           <Navigation toggleTheme={toggleTheme} dark={darkTheme} theme={theme} />
           <StatusBar style={darkTheme ? "light" : "dark"}/>
         </PaperProvider>

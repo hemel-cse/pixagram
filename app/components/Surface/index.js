@@ -3,10 +3,11 @@ import styled from 'styled-components/native';
 import { Surface } from 'react-native-paper';
 
 const StyledSurface = styled(Surface)`
-  padding: 8px;
   height: 100%;
   width: 100%;
   elevation: 4;
+  padding: 0;
+  margin: 0;
 `
   
 
