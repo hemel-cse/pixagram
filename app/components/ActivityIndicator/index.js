@@ -4,13 +4,13 @@ import styled from 'styled-components/native';
 
 
 const StyledIndicator = styled(ActivityIndicator)`
-  align-item: center;
+  align-items: center;
   justify-content: center;
 `
   
 
 const Indicator = () => (
-  <ActivityIndicator animating={true} />
+  <StyledIndicator animating={true} />
 );
 
 export default Indicator;

@@ -1,9 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Image, FlatList } from 'react-native';
+import { StyleSheet, View, Image, FlatList, TouchableOpacity } from 'react-native';
 
 import { useDispatch, useSelector } from 'react-redux';
 import * as imagesActions from '../actions';
-
 
 
 
@@ -28,9 +27,9 @@ const ImageGrid = (props) => {
       <FlatList
           data={items}
           renderItem={({ item }) => (
-            <View style={{ flex: 1, flexDirection: 'column', margin: 1 }}>
-              <Image style={styles.imageThumbnail} source={{ uri: item.src }} />
-            </View>
+            <TouchableOpacity onPress={() => console.log(item)} style={{ flex: 1, flexDirection: 'column', margin: 1 }}>
+                <Image style={styles.imageThumbnail} source={{ uri: item.src }} />
+            </TouchableOpacity>
           )}
           numColumns={3}
           keyExtractor={(item, index) => index.toString()}
