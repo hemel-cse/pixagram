@@ -6,8 +6,6 @@ import { TextInput } from 'react-native-paper';
 const SearchForm = (props) => {
   const theme = useTheme();
 
-  console.log(theme.colors)
-
   return (
     <Form
         onSubmit={props.onSubmit}

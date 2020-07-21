@@ -10,7 +10,8 @@ const initialState = {
   images: [],
   imagesEditor: [],
   imagesSearch: [],
-  type: 'images',
+  imagesSaved: [],
+  type: '',
 };
 
 export const imagesReducer = createReducer(initialState, {
@@ -39,13 +40,18 @@ export const imagesReducer = createReducer(initialState, {
       ...state,
       isError: true,
       isLoading: false,
-      images: [],
     };
   },
   [types.IMAGES_DISABLE_LOADER](state) {
     return {
       ...state,
       isLoading: false,
+    };
+  },
+  [types.IMAGES_SAVE_REQUEST](state, action) {
+    return {
+      ...state,
+      imagesSaved: [...imagesSaved, action.item]
     };
   },
 });

@@ -12,18 +12,27 @@ export default function* getImagesAsync(action) {
 
   yield put(imagesActions.enableLoader());
 
-  console.log("res", action);
+  try {
 
-  const response = yield call(getAllImages(action.type || "images", action.query));
+    const response = yield call(
+        getAllImages,
+        action.type,
+        action.query,
+    );
+    console.log(response);
 
-  console.log("res", response);
-
-  if (response.success) {
-    yield put(imagesActions.onImagesResponse(action.type, response.data));
-    yield put(imagesActions.disableLoader({}));
-
-  } else {
+    if (response.success) {
+      yield put(imagesActions.onImagesResponse(action.type, response.data));
+      yield put(imagesActions.disableLoader());
+  
+    } else {
+      yield put(imagesActions.requestFailed());
+      yield put(imagesActions.disableLoader());
+    }
+  } catch (error) {
+    console.log(error)
     yield put(imagesActions.requestFailed());
-    yield put(imagesActions.disableLoader({}));
+    yield put(imagesActions.disableLoader());
   }
 }
+    

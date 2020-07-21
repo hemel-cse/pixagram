@@ -11,3 +11,8 @@ export const IMAGES_DISABLE_LOADER = 'IMAGES_DISABLE_LOADER';
 export const IMAGES = 'images';
 export const IMAGES_EDITOR = 'imagesEditor';
 export const IMAGES_SEARCH = 'imagesSearch';
+export const IMAGES_SAVED = 'imagesSaved';
+
+// Images save
+export const IMAGES_SAVE_REQUEST = 'IMAGES_SAVE_REQUEST';
+

@@ -36,3 +36,10 @@ export const disableLoader = () => {
     type: types.IMAGES_DISABLE_LOADER,
   };
 }
+
+export const imageSaveRequest = (item) => {
+  return {
+    type: types.IMAGES_SAVE_REQUEST,
+    item
+  };
+}

@@ -1,24 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { View } from 'react-native';
 import Indicator from 'app/components/ActivityIndicator'
+
+import ImageSingle from 'app/features/image-single/containers';
+import styled from 'styled-components/native';
+
+
+const StyledView = styled(View)`
+  flex: 1;
+  justify-content: center;
+  background-color: #fff;
+`
+
 
 const Saved = (props) => {
   return (
-    <View style={styles.container}>
+    <StyledView>
+      <ImageSingle />
       <Indicator />
-      <Text>Open up App.js to saved working on your app!</Text>
-    </View>
+    </StyledView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default Saved;

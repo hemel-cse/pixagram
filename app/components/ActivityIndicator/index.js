@@ -7,7 +7,6 @@ const StyledIndicator = styled(ActivityIndicator)`
   align-items: center;
   justify-content: center;
 `
-  
 
 const Indicator = () => (
   <StyledIndicator animating={true} />

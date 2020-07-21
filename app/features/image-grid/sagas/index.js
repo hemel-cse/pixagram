@@ -6,6 +6,6 @@
  */
 import { takeEvery } from 'redux-saga/effects';
 import * as types from '../types';
-import getImagesAsync from './imageSaga';
+import imageSaga from './imageSaga';
 
-export const imageSagas = [takeEvery(types.IMAGES_REQUEST, getImagesAsync)];
+export const imageSagas = [takeEvery(types.IMAGES_REQUEST, imageSaga)];

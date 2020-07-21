@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text} from 'react-native';
+import { View } from 'react-native';
 
 import ImageGrid from 'app/features/image-grid/containers';
 import { IMAGES_SEARCH } from  'app/features/image-grid/types';
