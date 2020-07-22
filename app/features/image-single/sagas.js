@@ -11,7 +11,7 @@ import * as types from './types';
 export default function* showSnackBarAsync() {
 
   try {
-    yield delay(2000)
+    yield delay(3000)
 
     yield put(snackbarActions.closeSnackbar());
 

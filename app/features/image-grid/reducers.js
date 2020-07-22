@@ -3,6 +3,7 @@
  */
 import createReducer from 'app/lib/createReducer';
 import * as types from './types';
+import produce from "immer";
 
 const initialState = {
   isLoading: false,
@@ -49,9 +50,15 @@ export const imagesReducer = createReducer(initialState, {
     };
   },
   [types.IMAGES_SAVE_REQUEST](state, action) {
+
+    const result = produce(state.imagesSaved, draft => {
+      const item = draft.find(item => item.id === action.item.id);
+      if(item === undefined) draft.push(action.item);
+      return draft
+    });
     return {
       ...state,
-      imagesSaved: [...state.imagesSaved, action.item]
+      imagesSaved: [...result]
     };
   },
 });
