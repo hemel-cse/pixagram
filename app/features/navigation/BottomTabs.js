@@ -36,7 +36,7 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Editors"
+        name="Editor's Choice"
         component={Editors}
         options={{
           tabBarIcon: 'star-box-outline',

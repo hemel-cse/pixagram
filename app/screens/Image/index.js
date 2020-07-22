@@ -7,7 +7,6 @@ import styled from 'styled-components/native';
 
 const StyledView = styled(View)`
   flex: 1;
-  justify-content: center;
   background-color: #fff;
 `
 
@@ -15,7 +14,7 @@ const StyledView = styled(View)`
 const Image = (props) => {
   return (
     <StyledView>
-      <ImageSingle />
+      <ImageSingle  {...props}/>
     </StyledView>
   );
 }

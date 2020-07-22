@@ -16,7 +16,7 @@ const Home = (props) => {
   
   return (
     <StyledView>
-      <ImageGrid type={IMAGES} query={""}/>
+      <ImageGrid type={IMAGES} query={""} {...props}/>
     </StyledView>
   );
 }

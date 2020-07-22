@@ -10,7 +10,7 @@ import sagas from './sagas';
 const config = {
   key: 'pixagram',
   storage: AsyncStorage,
-  blacklist: [],
+  blacklist: ['singleImageReducer'],
   debug: true, //to get useful logging
 };
 

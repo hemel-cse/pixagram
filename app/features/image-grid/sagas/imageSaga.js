@@ -13,16 +13,14 @@ export default function* getImagesAsync(action) {
   yield put(imagesActions.enableLoader());
 
   try {
-
     const response = yield call(
         getAllImages,
-        action.type,
+        action.name,
         action.query,
     );
-    console.log(response);
 
-    if (response.success) {
-      yield put(imagesActions.onImagesResponse(action.type, response.data));
+    if (response?.hits) {
+      yield put(imagesActions.onImagesResponse(action.name, response?.hits));
       yield put(imagesActions.disableLoader());
   
     } else {

@@ -3,11 +3,11 @@
  */
 import * as types from './types';
 
-export const requestImages = (type, query) => {
+export const requestImages = (name, query) => {
   return {
     type: types.IMAGES_REQUEST,
-    type,
-    query
+    name,
+    query: query !== undefined ? query : '',
   };
 }
 
@@ -17,10 +17,10 @@ export const requestFailed = () => {
   };
 }
 
-export const onImagesResponse = (type, response) => {
+export const onImagesResponse = (name, response) => {
   return {
     type: types.IMAGES_RESPONSE,
-    type,
+    name,
     response,
   };
 }

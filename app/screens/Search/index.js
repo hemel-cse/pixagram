@@ -10,7 +10,6 @@ import SearchForm from 'app/components/Form/Search';
 
 const StyledView = styled(View)`
   flex: 1;
-  justify-content: center;
   background-color: #fff;
 `
 
@@ -25,7 +24,7 @@ const Search = (props) => {
   return (
     <StyledView>
       <SearchForm onSubmit={onSearch} />
-      <ImageGrid type={IMAGES_SEARCH} query={search}/>
+      <ImageGrid type={IMAGES_SEARCH} query={search} {...props}/>
     </StyledView>
   );
 }

@@ -11,14 +11,14 @@ const initialState = {
   imagesEditor: [],
   imagesSearch: [],
   imagesSaved: [],
-  type: '',
+  name: '',
 };
 
 export const imagesReducer = createReducer(initialState, {
   [types.IMAGES_REQUEST](state, action) {
     return {
       ...state,
-      type: action.type
+      name: action.name
     };
   },
   [types.IMAGES_ENABLE_LOADER](state) {
@@ -32,7 +32,7 @@ export const imagesReducer = createReducer(initialState, {
       ...state,
       isError: false,
       isLoading: false,
-      [action.type]: action.response,
+      [action.name]: action.response,
     };
   },
   [types.IMAGES_FAILED](state) {
@@ -51,7 +51,7 @@ export const imagesReducer = createReducer(initialState, {
   [types.IMAGES_SAVE_REQUEST](state, action) {
     return {
       ...state,
-      imagesSaved: [...imagesSaved, action.item]
+      imagesSaved: [...state.imagesSaved, action.item]
     };
   },
 });

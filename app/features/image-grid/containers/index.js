@@ -1,16 +1,20 @@
 import React from 'react';
-import { Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
-
+import Indicator from 'app/components/ActivityIndicator'
 import { useDispatch, useSelector } from 'react-redux';
 import * as imagesActions from '../actions';
+
+const StyledView = styled(View)`
+  align-items: center;
+  justify-content: center;
+`
 
 const StyledTouchableOpacity = styled(TouchableOpacity)`
   margin: 1px;
   flex: 1;
   flex-direction: column;
 `
-
 const StyledImage = styled(Image)`
   align-items: center;
   justify-content: center;
@@ -26,23 +30,27 @@ const ImageGrid = (props) => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if(images.length < 1) dispatch(imagesActions.requestImages(props.type, props.query));
+     dispatch(imagesActions.requestImages(props.type, props.query));
   },[props.type, props.query]);
 
-  console.log('isLoading', loading);
-  console.log('isLoading', images.length, typeof images);
-  console.log('isLoading', props.type);
+  if(images.length < 1 && props.type === 'imagesSaved') 
+  return (
+    <StyledView>
+      <Text>No saved images found in the gallery!</Text>
+    </StyledView>
+  );
 
-  const items = Array.apply(null, Array(60)).map((v, i) => {
-    return { id: i, src: 'http://placehold.it/200x200?text=' + (i + 1) };
-  });
+  if(!images || images.length < 1 || loading) 
+  return (
+    <Indicator />
+  );
 
   return (
       <FlatList
-          data={items}
+          data={images}
           renderItem={({ item }) => (
-            <StyledTouchableOpacity onPress={() => console.log(item)}>
-                <StyledImage source={{ uri: item.src }} />
+            <StyledTouchableOpacity onPress={() => props?.navigation?.push("Image",{item})}>
+                <StyledImage source={{ uri: item.previewURL }} />
             </StyledTouchableOpacity>
           )}
           numColumns={3}

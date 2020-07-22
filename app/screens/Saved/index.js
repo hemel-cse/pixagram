@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
-import Indicator from 'app/components/ActivityIndicator'
 
-import ImageSingle from 'app/features/image-single/containers';
+import ImageGrid from 'app/features/image-grid/containers';
+import { IMAGES_SAVED } from  'app/features/image-grid/types';
 import styled from 'styled-components/native';
 
 
@@ -12,12 +12,11 @@ const StyledView = styled(View)`
   background-color: #fff;
 `
 
-
 const Saved = (props) => {
+
   return (
     <StyledView>
-      <ImageSingle />
-      <Indicator />
+      <ImageGrid type={IMAGES_SAVED} query={""} {...props}/>
     </StyledView>
   );
 }

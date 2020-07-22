@@ -16,7 +16,7 @@ const Editors = (props) => {
   
   return (
     <StyledView>
-      <ImageGrid type={IMAGES_EDITOR} query={""}/>
+      <ImageGrid type={IMAGES_EDITOR} query={""} {...props}/>
     </StyledView>
   );
 }
