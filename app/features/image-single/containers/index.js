@@ -44,7 +44,7 @@ const StyledTouchableOpacity = styled(TouchableOpacity)`
 `
 const StyledImage = styled(Image)`
   margin-top: 25px;
-  border-radius: 0;
+  border-radius: 0px;
   width: ${imageWidth}px;
   height: ${imageHeight}px;
 `
@@ -61,8 +61,8 @@ const StyledBottomTouchableOpacity = styled(TouchableOpacity)`
   align-items: center;
 `
 const StyledCaptionTop = styled(Caption)`
-  margin-right: 3;
-  line-height: 12;
+  margin-right: 3px;
+  line-height: 12px;
   color: #131313;
 `
 const StyledCaptionBottom = styled(Caption)`
